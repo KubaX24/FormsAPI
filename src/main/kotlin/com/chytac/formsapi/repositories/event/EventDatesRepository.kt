@@ -4,4 +4,6 @@ import com.chytac.formsapi.entities.event.EventDatesEntity
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface EventDatesRepository : JpaRepository<EventDatesEntity, Int> {
+
+    fun findAllByIdEvent(idEvent: Int): List<EventDatesEntity>
 }

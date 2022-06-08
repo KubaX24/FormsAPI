@@ -10,4 +10,9 @@ class IndexController {
     fun indexMapping(): String{
         return "v1";
     }
+
+    @GetMapping("/status")
+    fun getStatus(): String{
+        return "ok";
+    }
 }
