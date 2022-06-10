@@ -1,13 +1,22 @@
 package com.chytac.formsapi.entities.event
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
 @Entity
 data class EventAnswersEntity(
-    @Id @GeneratedValue val id: Int?,
-    val idProfile: Int,
+    @JsonIgnore @Id @GeneratedValue val id: Int? = null,
+    @JsonIgnore val idProfile: Int?,
     val idDate: Int,
-    val idEvent: Int
+    @JsonIgnore val idEvent: Int,
+    val type: Int
     )
+
+/**
+ * TYPES
+ * 0 - NO
+ * 1 - YES
+ * 2 - IDK
+ */

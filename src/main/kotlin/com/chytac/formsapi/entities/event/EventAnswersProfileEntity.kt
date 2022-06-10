@@ -6,6 +6,7 @@ import javax.persistence.Id
 
 @Entity
 data class EventAnswersProfileEntity(
-    @Id @GeneratedValue val id: Int?,
-    val name: String
+    @Id @GeneratedValue val id: Int? = null,
+    val name: String,
+    val idEvent: Int
     )
