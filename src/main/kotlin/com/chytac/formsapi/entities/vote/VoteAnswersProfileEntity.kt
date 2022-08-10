@@ -1,12 +1,12 @@
-package com.chytac.formsapi.entities.event
+package com.chytac.formsapi.entities.vote
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
 @Entity
-data class EventAnswersProfileEntity(
+data class VoteAnswersProfileEntity(
     @Id @GeneratedValue val id: Int? = null,
     val name: String,
-    val idEvent: Int
+    val idVote: Int
     )

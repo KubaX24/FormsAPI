@@ -1,4 +1,4 @@
-package com.chytac.formsapi.entities.event
+package com.chytac.formsapi.entities.vote
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import java.time.LocalDateTime
@@ -7,8 +7,8 @@ import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
 @Entity
-data class EventDatesEntity(
+data class VoteDatesEntity(
     @Id @GeneratedValue val id: Int? = null,
-    @JsonIgnore val idEvent: Int?,
+    @JsonIgnore val idVote: Int?,
     val date: LocalDateTime
     )
