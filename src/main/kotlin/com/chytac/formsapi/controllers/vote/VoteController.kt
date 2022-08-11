@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*
 class VoteController(val voteService: VoteService) {
 
     @CrossOrigin
-    @GetMapping("/vote/{hash_id}")
+    @GetMapping(value = ["/vote/{hash_id}"], produces = ["application/json"])
     fun getVoteById(@PathVariable hash_id: String): VoteObject {
         val id: Int = HashIDUtil.getId(hash_id).toInt()
 
@@ -21,7 +21,7 @@ class VoteController(val voteService: VoteService) {
     }
 
     @CrossOrigin
-    @PostMapping("/vote")
+    @PostMapping(value = ["/vote"], produces = ["application/json"])
     fun addVote(@RequestBody vote: VoteObject): ResponseObject{
         val voteEntity: VoteEntity = voteService.voteRepository.save(VoteEntity(name = vote.name, description = vote.description))
         for (voteDate in vote.listOfDates) {
@@ -32,7 +32,7 @@ class VoteController(val voteService: VoteService) {
     }
 
     @CrossOrigin
-    @GetMapping("/vote/{hash_id}/answers")
+    @GetMapping(value = ["/vote/{hash_id}/answers"], produces = ["application/json"])
     fun getAnswersByVoteID(@PathVariable hash_id: String): List<AnswerObject>{
         val id: Int = HashIDUtil.getId(hash_id).toInt()
 
@@ -40,7 +40,7 @@ class VoteController(val voteService: VoteService) {
     }
 
     @CrossOrigin
-    @PostMapping("/vote/{hash_id}/answer")
+    @PostMapping(value = ["/vote/{hash_id}/answer"], produces = ["application/json"])
     fun addAnswer(@PathVariable hash_id: String, @RequestBody answer: AnswerObject){
         val id: Int = HashIDUtil.getId(hash_id).toInt()
 
